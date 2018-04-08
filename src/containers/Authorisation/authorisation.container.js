@@ -10,8 +10,8 @@ class Authorisation extends Component {
         super(props);
         this.state = {
             userName: '',
-            registeredPassword: '',
-        };
+            registeredPassword: ''
+        }
         this.handleSubmitAuthorisation = this.handleSubmitAuthorisation.bind(this);
         this.handleUserName = this.handleUserName.bind(this);
         this.handleRegisteredPassword = this.handleRegisteredPassword.bind(this);
@@ -20,16 +20,20 @@ class Authorisation extends Component {
     handleSubmitAuthorisation (event) {
         event.preventDefault();
         const users = JSON.parse(localStorage.getItem(this.state.userName));
-        if (
-            users.login === this.state.userName &&
-            users.password === this.state.registeredPassword 
-        ) {
-            this.props.onLogin(users);
-            history.push('/addition');
-            alert('You are signed in');
+        if (!!users) {
+            if (
+                users.login === this.state.userName &&
+                users.password === this.state.registeredPassword 
+            ) {
+                this.props.onLogin(users);
+                history.push('/addition');
+                alert('You are signed in');
+            } else {
+                alert('Please, check your password');
+            }
         } else {
-            alert('Please, check your data');
-        }
+            alert('You are not registrated');
+        } 
     };
     handleUserName (event) {
         this.setState({ userName: event.target.value });   
