@@ -48,12 +48,12 @@ class Addition extends Component {
             solarium: this.state.solarium
         }
         this.props.onAddition(newTraining);
-        const currentUserData = JSON.parse(localStorage.getItem(this.props.globalState.login));
+        const currentUserData = JSON.parse(localStorage.getItem(this.props.appState.login));
         const newUserData = JSON.stringify({
             ...currentUserData,
             trainings: currentUserData.trainings.concat(newTraining)
         });
-        localStorage.setItem(this.props.globalState.login, newUserData);
+        localStorage.setItem(this.props.appState.login, newUserData);
 		console.log(localStorage.getItem('trainings'));
 		history.push('/currenttrainings');
 	}
@@ -97,7 +97,7 @@ class Addition extends Component {
                         </Link>
                 </Button>
                 <Form.Field>
-                    <h4>Hello, { this.props.globalState.login }</h4>
+                    <h4>Hello, { this.props.appState.login }</h4>
                 </Form.Field >
                 <Form className="segment" onSubmit = {this.handleSubmitAdditionForm} style={{margin: "auto", maxWidth: "70%"}}>
                     <Form.Field >
