@@ -16,6 +16,7 @@ class App extends Component {
         }
         this.setStateOnLogin = this.setStateOnLogin.bind(this);
         this.updateStateOnAddition = this.updateStateOnAddition.bind(this);
+        this.updateStateOnRemoving = this.updateStateOnRemoving.bind(this);
     }
     setStateOnLogin(state) {
         this.setState(state);
@@ -26,14 +27,20 @@ class App extends Component {
             trainings: this.state.trainings.concat(training)
         });
     }
+    updateStateOnRemoving () {
+        this.setState({
+            ...this.state,
+            trainings: this.state.trainings.filter((training, i, trainings) => i < trainings.length - 1)
+        });
+    }
     render() {
         console.log(this.state)
         return (
             <div>
                 <Route  exact path = '/' render = { () => <Authorisation onLogin = { this.setStateOnLogin } /> } /> 
                 <Route  path = '/registration' component = { Registration } />
-                <Route  path = '/addition' render = { () => <Addition appState = { this.state } onAddition={this.updateStateOnAddition}/> } />
-                <Route  path = '/currenttrainings' render = { () => <Trainings appState = { this.state } /> } />
+                <Route  path = '/addition' render = { () => <Addition appState = { this.state } onAddition = { this.updateStateOnAddition }/> } />
+                <Route  path = '/currenttrainings' render = { () => <Trainings appState = { this.state } onRemoving = { this.updateStateOnRemoving } /> } />
             </div>
         )
     };
