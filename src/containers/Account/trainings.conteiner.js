@@ -26,13 +26,13 @@ class Trainings extends Component {
                 </Form.Field>
                 <div className = 'addition_form'>
                     <Form>
-                        <Form.Field>
-                            <p>Type of training: { this.props.appState.trainings }</p>
-                            <p>Trainer: { this.props.appState.trainer }</p>
-                            <p>Date: { this.props.appState.date }</p>
-                            <p>Time: { this.props.appState.time }</p>
-                            <p>Towel: { this.props.appState.towel }</p>
-                            <p>Solarium: { this.props.appState.solarium }</p>
+                        <Form.Field style = {{ display: 'flex' }}>                                                   
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Type of training: { it.training }</p>) }</div>
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Trainer: { it.trainer }</p>) }</div>
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Date: { it.date }</p>) }</div>
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Time: { it.time }</p>) }</div>
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Towel: { String(it.towel) }</p>) }</div>
+                            <div style = {{ margin: '10px' }}> { this.props.appState.trainings.map((it, i) => <p key = { i }>Solarium: { String(it.solarium) }</p>) }</div>
                         </Form.Field>
                     </Form>
                 </div>    

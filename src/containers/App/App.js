@@ -27,11 +27,12 @@ class App extends Component {
         });
     }
     render() {
+        console.log(this.state)
         return (
             <div>
                 <Route  exact path = '/' render = { () => <Authorisation onLogin = { this.setStateOnLogin } /> } /> 
                 <Route  path = '/registration' component = { Registration } />
-                <Route  path = '/addition' render = { () => <Addition globalState = { this.state } onAddition={this.updateStateOnAddition}/> } />
+                <Route  path = '/addition' render = { () => <Addition appState = { this.state } onAddition={this.updateStateOnAddition}/> } />
                 <Route  path = '/currenttrainings' render = { () => <Trainings appState = { this.state } /> } />
             </div>
         )
