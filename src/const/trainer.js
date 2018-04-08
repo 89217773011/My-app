@@ -1,7 +1,1 @@
-export const TRAINER = [
-    '',
-    'Swimming',
-    'Boxing',
-    'Football',
-    'Gym'
-];
+export const TRAINER = ["", "Swimming", "Boxing", "Football", "Gym"];
