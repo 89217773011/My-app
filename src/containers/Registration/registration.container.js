@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './style.registration.css';
-import { addLogin } from './registration.actions';
-import { SET_LOGIN } from './../../const';
 import { Button, Segment, Form } from 'semantic-ui-react';
 import Header from './../../components/Header/header.component';
 import { history } from '../../index';
@@ -36,7 +33,6 @@ class Registration extends Component {
 			alert('Password and confirmation doesn\'t match');
 			return false;
 		}
-		return false;
 	}
 
 	setNewUser() {
@@ -120,18 +116,4 @@ class Registration extends Component {
 	}
 }
 
-// handleLoginChange = (event) => this.props.setLogin(event.target.value);
-
-const mapStateToProps = (state) => {
-	return {
-		login: state.registrationReducer
-	}
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setLogin: (login) => dispatch({ type: SET_LOGIN, login })
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Registration);
+export default Registration;

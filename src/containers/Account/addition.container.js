@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Segment, Form } from 'semantic-ui-react';
-import Select from 'semantic-ui-react/dist/commonjs/addons/Select/Select';
 import { TIME, TRAINER, TRAINING } from './../../const';
 import './style.account.css';
 import { history } from '../../index';
@@ -104,7 +103,7 @@ class Addition extends Component {
                         <label>Type of training</label>
                         <select
                             placeholder='Type of training' 
-                            //value = {this.state.training}
+                            value = {this.state.training}
                             onChange = {(e) => this.handleTraining(e)}
                             >
                                 { TRAINER.map((trainer, i) => <option key = { i }>{trainer}</option>) }
@@ -114,7 +113,7 @@ class Addition extends Component {
                         <label>Trainer</label>
                         <select  
                             placeholder='Trainer' 
-                            //value = { this.state.trainer }
+                            value = { this.state.trainer }
                             onChange = {this.handleTrainer}
                             >
                                 { TRAINING.map((training, i) => <option key = { i }>{training}</option>) }  
@@ -162,7 +161,7 @@ class Addition extends Component {
                         /> 
                     </Form.Field>
                     <button 
-                        onClick = { this.handleSubmitForm }
+                        onClick = { value => this.handleSubmitAdditionForm(value) }
                         >
                             Submit
                     </button>

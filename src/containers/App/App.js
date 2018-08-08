@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Registration from './../Registration/registration.container';
 import Addition from '../Account/addition.container';
 import Authorisation from '../Authorisation/authorisation.container';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Trainings from '../Account/trainings.conteiner';
 
 class App extends Component {
